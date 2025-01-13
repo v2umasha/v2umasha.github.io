@@ -1,0 +1,8 @@
+title: MOSFET Models
+description: Physics-based MOSFET models for GaN, SiC, and Si.
+baseurl: /
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+markdown: kramdown
