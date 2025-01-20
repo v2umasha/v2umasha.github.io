@@ -15,12 +15,8 @@ Welcome to the MOSFET Models website repository! This project provides a central
    ```
    git clone https://github.com/<your-username>/<your-repo>.git
    ```
-2. Navigate to the repository folder and serve the site locally with Jekyll:
-   ```
-   bundle exec jekyll serve
-   ```
-3. Open `http://localhost:4000` in your browser.
+2. Open `(https://v2umasha.github.io/)` in your browser.
 
 ## License
 
-This project is licensed under the MIT License.
+Figure out license 
