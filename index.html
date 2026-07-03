@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vithurshan Umashanker — RTL Design Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Tokens ─────────────────────────────────────────────── */
+    :root {
+      --bg:        #F7F6F3;
+      --surface:   #FFFFFF;
+      --border:    #E2E0DA;
+      --text:      #1A1916;
+      --muted:     #6B6860;
+      --accent:    #1C4ED8;   /* deep circuit-board blue */
+      --accent-lt: #EEF2FF;
+      --mono:      'IBM Plex Mono', monospace;
+      --sans:      'IBM Plex Sans', sans-serif;
+      --max:       800px;
+      --gap:       2rem;
+    }
+
+    /* ── Reset ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { display: block; max-width: 100%; }
+
+    /* ── Layout ─────────────────────────────────────────────── */
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    section { padding: 4rem 0; }
+    section + section { border-top: 1px solid var(--border); }
+
+    /* ── Nav ────────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(247, 246, 243, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 0.9rem;
+      padding-bottom: 0.9rem;
+    }
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .nav-links a:hover { color: var(--accent); text-decoration: none; }
+
+    /* ── Hero ───────────────────────────────────────────────── */
+    #hero {
+      padding: 6rem 0 5rem;
+      border-top: none;
+    }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    h1 {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+    }
+    h1 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--muted);
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 560px;
+      margin-bottom: 2rem;
+    }
+    .hero-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: 4px;
+      transition: background 0.15s, color 0.15s;
+      letter-spacing: 0.03em;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border: 1px solid var(--accent);
+    }
+    .btn-primary:hover { background: #1740B0; text-decoration: none; }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+    /* Signature element: schematic trace line */
+    .trace {
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--border) 60%, transparent 100%);
+      margin: 3rem 0 0;
+      opacity: 0.5;
+    }
+
+    /* ── Section headings ───────────────────────────────────── */
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── About ──────────────────────────────────────────────── */
+    .about-body {
+      font-size: 1rem;
+      color: var(--text);
+      font-weight: 300;
+      max-width: 640px;
+    }
+    .about-body p + p { margin-top: 1rem; }
+    .about-body strong { font-weight: 500; }
+
+    /* ── Projects ───────────────────────────────────────────── */
+    .projects-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem;
+      transition: border-color 0.15s;
+    }
+    .project-card:hover { border-color: var(--accent); }
+    .project-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.6rem;
+    }
+    .project-title {
+      font-family: var(--mono);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .project-link {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .project-desc {
+      font-size: 0.93rem;
+      font-weight: 300;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .tag {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 3px;
+      background: var(--accent-lt);
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    .section-sublabel {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 3rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .section-sublabel::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .project-card--wip {
+      border-style: dashed;
+      background: var(--bg);
+    }
+
+    .project-media {
+      margin-top: 1rem;
+    }
+    .project-media video,
+    .project-media img {
+      width: 100%;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      background: #000;
+    }
+    .project-media img {
+      background: transparent;
+    }
+    .video-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .video-pair-item {}
+    .video-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .video-label--fail { color: #B91C1C; }
+    .video-label--success { color: #15803D; }
+    .video-pair video {
+      width: 100%;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      background: #000;
+    }
+    @media (max-width: 600px) {
+      .video-pair { grid-template-columns: 1fr; }
+    }
+
+    /* ── Skills ─────────────────────────────────────────────── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-group-title {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .skill-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .skill-list li {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--muted);
+    }
+
+    /* ── Experience ─────────────────────────────────────────── */
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .exp-item {}
+    .exp-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 0.3rem;
+    }
+    .exp-role {
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+    .exp-date {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .exp-org {
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .exp-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--muted);
+    }
+
+    /* ── Contact ────────────────────────────────────────────── */
+    #contact .container > p {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 1.75rem;
+    }
+    .contact-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── Footer ─────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+    }
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-text {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    /* ── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .nav-links { gap: 1rem; }
+      .exp-meta { flex-direction: column; gap: 0.1rem; }
+      footer .container { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="container">
+      <span class="nav-logo">Vithurshan Umashanker</span>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="container">
+      <p class="hero-eyebrow">RTL Design Engineer</p>
+      <h1>Building the hardware<br /><em>that runs the models.</em></h1>
+      <p class="hero-sub">
+        MEng graduate from the University of Waterloo. I design and verify digital hardware from microarchitecture through ASIC tape-out — FPGAs, custom silicon, and everything in between.
+      </p>
+      <div class="hero-links">
+        <a class="btn btn-primary" href="#projects">View Projects</a>
+        <a class="btn btn-ghost" href="https://github.com/v2umasha" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/vithurshan-u/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+      <span class="trace"></span>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <p class="section-label">About</p>
+      <div class="about-body">
+        <p>
+          I'm a hardware engineer with a BEng in Nanotechnology Engineering and an MEng from the University of Waterloo, focused on <strong>RTL design and verification</strong>. My work spans FPGA-based AI accelerator development, ASIC flows with commercial EDA tools (DC, Innovus, PrimeTime), and full-custom IC layout in TSMC 65nm.
+        </p>
+        <p>
+          I'm drawn to the stack where algorithms meet silicon — designing the arithmetic, memory, and datapath units that make inference fast and efficient. I'm currently seeking front-end RTL design roles at companies building the next generation of AI chips.
+        </p>
+        <p>
+          Outside of hardware: I've worked as a TA guiding students through RTL-to-GDS flows, and previously as an ML engineer and research assistant on computer vision and spectroscopy projects.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <p class="section-label">Projects</p>
+
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-title">IBERT — Inference BERT Accelerator</span>
+            <a class="project-link" href="https://github.com/v2umasha" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+          <p class="project-desc">
+            FPGA-based hardware accelerator for BERT inference. Designed a systolic array with FSM-based address generation controllers for multi-bank SRAMs, and a two-FSM attention head with input mux and output demux. Implemented fixed-point exp(x) and softmax pipelines using argument-reduction and Horner approximation. RTL-to-GDS on ASAP7 targeting 1 GHz; critical path analysis via OpenROAD with post-route timing closure achieving 0.739 ns slack.
+          </p>
+          <div class="tag-row">
+            <span class="tag">SystemVerilog</span>
+            <span class="tag">ASAP7</span>
+            <span class="tag">OpenROAD</span>
+            <span class="tag">FPGA</span>
+            <span class="tag">Fixed-Point</span>
+            <span class="tag">Systolic Array</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-title">RAIHA — Robotic AI Hardware Accelerator</span>
+            <a class="project-link" href="https://github.com/v2umasha" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+          <p class="project-desc">
+            RTL implementation of an activation preprocessing pipeline and AXI host interface targeting OpenVLA-7B inference acceleration (LLaMA-2 backbone), aiming to push throughput from ~5 Hz to 25–50 Hz for robotic manipulation. Modules include a reduction tree, scale register file, BF16→FP32 multiplier via DSP48E2, and a downstream divider pipeline. 224 golden truth files captured via PyTorch forward hooks for RTL comparison. Quantization research: per-group W4A4 (gs=64) achieved 88.4% weighted task accuracy vs. 83.1% BF16 baseline.
+          </p>
+          <div class="tag-row">
+            <span class="tag">SystemVerilog</span>
+            <span class="tag">AXI</span>
+            <span class="tag">BF16</span>
+            <span class="tag">DSP48E2</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">INT4 Quantization</span>
+          </div>
+          <div class="video-pair">
+            <div class="video-pair-item">
+              <p class="video-label video-label--fail">Before — Per-tensor W4A4 (0% task success)</p>
+              <video controls preload="none">
+                <source src="assets/videos/raiha_attempt1.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="video-pair-item">
+              <p class="video-label video-label--success">After — Per-group gs=64 (88.4% task success)</p>
+              <video controls preload="none">
+                <source src="assets/videos/raiha_success.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-title">5-Stage Pipelined RISC-V SoC</span>
+          </div>
+          <p class="project-desc">
+            Pipelined RISC-V CPU synthesized and deployed on a PYNQ-Z1 FPGA, extended to a full SoC with memory-mapped PWM and SPI peripherals. Two-FF synchronizer on the byte-ready signal crossing the SCLK domain to the system clock domain. SPI master writes to shared PWM config registers with a CPU-wins priority mux.
+          </p>
+          <div class="tag-row">
+            <span class="tag">SystemVerilog</span>
+            <span class="tag">RISC-V</span>
+            <span class="tag">FPGA</span>
+            <span class="tag">SPI</span>
+            <span class="tag">PWM</span>
+            <span class="tag">CDC</span>
+          </div>
+          <div class="project-media">
+            <img src="assets/images/riscv.png" alt="RISC-V pipeline architecture diagram" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-title">256-Bit Scan Chain — Full-Custom IC (TSMC 65nm)</span>
+          </div>
+          <p class="project-desc">
+            Designed and laid out a 256-bit scan chain using Transmission Gate Flip-Flops (TGFF) in Cadence Virtuoso on TSMC 65nm. 20 transistors per cell vs. 32 for a standard NAND-based FF — a 37% reduction enabled by the contention-free topology. H-tree clock distribution, Monte Carlo analysis, pre/post-layout simulation, with power-delay product as the figure of merit.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Cadence Virtuoso</span>
+            <span class="tag">TSMC 65nm</span>
+            <span class="tag">Full-Custom</span>
+            <span class="tag">DFT</span>
+            <span class="tag">Monte Carlo</span>
+          </div>
+          <div class="project-media">
+            <img src="assets/images/scanchain.png" alt="256-bit scan chain layout in Cadence Virtuoso" loading="lazy" />
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Currently Pursuing -->
+      <p class="section-sublabel">Currently Pursuing</p>
+      <div class="projects-grid">
+
+        <div class="project-card project-card--wip">
+          <div class="project-header">
+            <span class="project-title">MXA — OCP MX GEMM Accelerator</span>
+            <a class="project-link" href="https://github.com/v2umasha" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+          <p class="project-desc">
+            Full design of an OCP Microscaling (MXFP4) GEMM accelerator subsystem targeting 1 GHz post-route on ASAP7 and 512 GOPS peak throughput. Architecture spans a pipelined FP4 dot-product datapath, 16×16 PE array with cocotb DV, banked SRAM memory subsystem, burst-capable AXI4 Full DMA master, and full-system integration with CDC. Formally verified via SymbiYosys; GitHub Actions CI gating each phase.
+          </p>
+          <div class="tag-row">
+            <span class="tag">SystemVerilog</span>
+            <span class="tag">MXFP4</span>
+            <span class="tag">AXI4</span>
+            <span class="tag">cocotb</span>
+            <span class="tag">SymbiYosys</span>
+            <span class="tag">ASAP7</span>
+            <span class="tag">CDC</span>
+          </div>
+        </div>
+
+        <div class="project-card project-card--wip">
+          <div class="project-header">
+            <span class="project-title">QoS AXI Interconnect Fabric</span>
+            <a class="project-link" href="https://github.com/v2umasha" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+          <p class="project-desc">
+            Multi-domain AXI interconnect with quality-of-service arbitration. Submodules include a selective dispatch queue, AXI4-Stream wrapper, QoS arbiter, address decoder/crossbar, CDC crossing, APB peripheral bridge, and clock gating/power domain analysis. Architecture crosses a fast CPU/fabric domain to a slow APB peripheral domain. UPF power domain definitions, SVA assertions, and quantitative timing closure targets via OpenROAD/ASAP7.
+          </p>
+          <div class="tag-row">
+            <span class="tag">SystemVerilog</span>
+            <span class="tag">AXI4-Stream</span>
+            <span class="tag">APB</span>
+            <span class="tag">CDC</span>
+            <span class="tag">UPF</span>
+            <span class="tag">SVA</span>
+            <span class="tag">OpenROAD</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="container">
+      <p class="section-label">Skills</p>
+      <div class="skills-grid">
+
+        <div>
+          <p class="skill-group-title">RTL & Verification</p>
+          <ul class="skill-list">
+            <li>SystemVerilog / Verilog</li>
+            <li>SVA (SystemVerilog Assertions)</li>
+            <li>cocotb / Verilator</li>
+            <li>SymbiYosys (Formal)</li>
+            <li>Constrained Random DV</li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="skill-group-title">ASIC Flow</p>
+          <ul class="skill-list">
+            <li>Synopsys DC (Synthesis)</li>
+            <li>Cadence Innovus (P&amp;R)</li>
+            <li>PrimeTime (STA)</li>
+            <li>OpenROAD / ASAP7</li>
+            <li>UPF / Power Analysis</li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="skill-group-title">FPGA & Interfaces</p>
+          <ul class="skill-list">
+            <li>Xilinx / PYNQ</li>
+            <li>AXI4 / AXI4-Stream / APB</li>
+            <li>SPI / JTAG</li>
+            <li>Clock Domain Crossing</li>
+            <li>DSP48E2</li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="skill-group-title">Software & Tools</p>
+          <ul class="skill-list">
+            <li>Python / PyTorch</li>
+            <li>Cadence Virtuoso</li>
+            <li>Git / GitHub Actions</li>
+            <li>C / C++</li>
+            <li>Linux / Bash</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <div class="container">
+      <p class="section-label">Experience</p>
+      <div class="exp-list">
+
+        <div class="exp-item">
+          <div class="exp-meta">
+            <span class="exp-role">Teaching Assistant — Digital Hardware Design</span>
+            <span class="exp-date">2024 – 2025</span>
+          </div>
+          <p class="exp-org">University of Waterloo</p>
+          <p class="exp-desc">Guided students through RTL-to-GDS flows including synthesis, place-and-route, and static timing analysis. Mentored teams debugging FPGA implementations and ASIC timing closure, including post-route slack improvements from 0.89 ns to 0.739 ns.</p>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-meta">
+            <span class="exp-role">ML Engineer Lead (Co-op)</span>
+            <span class="exp-date">2023</span>
+          </div>
+          <p class="exp-org">Healthcare Systems</p>
+          <p class="exp-desc">Built a pose estimation pipeline for chronic lower back pain assessment using MobileNetV2 with cyclic checkpointing and a MediaPipe-style cascade, optimizing for inference latency on embedded hardware.</p>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-meta">
+            <span class="exp-role">Research Assistant (Co-op)</span>
+            <span class="exp-date">2022</span>
+          </div>
+          <p class="exp-org">MIS Electronics</p>
+          <p class="exp-desc">Developed SpectraView, a Python/Tkinter Raman spectroscopy application with a chemical signature database and calibration curve engine. Work contributed to a peer-reviewed publication.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <p class="section-label">Contact</p>
+      <p>I'm actively looking for RTL design roles at companies working on AI accelerators and custom silicon. If that sounds like a fit, I'd love to connect.</p>
+      <div class="contact-links">
+        <a class="btn btn-primary" href="mailto:vithurshanumashanker@gmail.com">Email Me</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/vithurshan-u/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn btn-ghost" href="https://github.com/v2umasha" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <span class="footer-text">Vithurshan Umashanker &mdash; v2umasha.github.io</span>
+      <span class="footer-text">MEng, University of Waterloo</span>
+    </div>
+  </footer>
+
+</body>
+</html>
