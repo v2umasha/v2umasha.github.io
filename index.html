@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vithurshan Umashanker — RTL Design Engineer</title>
+  <title>Vithurshan Umashanker</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
@@ -425,7 +425,7 @@
       <p class="hero-eyebrow">RTL Design Engineer</p>
       <h1>Building the hardware<br /><em>that runs the models.</em></h1>
       <p class="hero-sub">
-        MEng graduate from the University of Waterloo. I design and verify digital hardware from microarchitecture through ASIC tape-out — FPGAs, custom silicon, and everything in between.
+        I work at the RTL level, making informed decisions based on a full-stack understanding of digital systems from microarchitecture to device physics
       </p>
       <div class="hero-links">
         <a class="btn btn-primary" href="#projects">View Projects</a>
@@ -466,6 +466,24 @@
       <p class="section-label">Projects</p>
 
       <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-title">IBERT — Inference BERT Accelerator</span>
+            <a class="project-link" href="https://github.com/v2umasha" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+          <p class="project-desc">
+            FPGA-based hardware accelerator for BERT inference. Designed a systolic array with FSM-based address generation controllers for multi-bank SRAMs, and a two-FSM attention head with input mux and output demux. Implemented fixed-point exp(x) and softmax pipelines using argument-reduction and Horner approximation. RTL-to-GDS on ASAP7 targeting 1 GHz; critical path analysis via OpenROAD with post-route timing closure achieving 0.739 ns slack.
+          </p>
+          <div class="tag-row">
+            <span class="tag">SystemVerilog</span>
+            <span class="tag">ASAP7</span>
+            <span class="tag">OpenROAD</span>
+            <span class="tag">FPGA</span>
+            <span class="tag">Fixed-Point</span>
+            <span class="tag">Systolic Array</span>
+          </div>
+        </div>
 
         <div class="project-card">
           <div class="project-header">
@@ -521,24 +539,6 @@
 
         <div class="project-card">
           <div class="project-header">
-            <span class="project-title">IBERT — Inference BERT Accelerator</span>
-            <a class="project-link" href="https://github.com/v2umasha" target="_blank" rel="noopener">GitHub ↗</a>
-          </div>
-          <p class="project-desc">
-            FPGA-based hardware accelerator for BERT inference. Designed a systolic array with FSM-based address generation controllers for multi-bank SRAMs, and a two-FSM attention head with input mux and output demux. Implemented fixed-point exp(x) and softmax pipelines using argument-reduction and Horner approximation. RTL-to-GDS on ASAP7 targeting 1 GHz; critical path analysis via OpenROAD with post-route timing closure achieving 0.739 ns slack.
-          </p>
-          <div class="tag-row">
-            <span class="tag">SystemVerilog</span>
-            <span class="tag">ASAP7</span>
-            <span class="tag">OpenROAD</span>
-            <span class="tag">FPGA</span>
-            <span class="tag">Fixed-Point</span>
-            <span class="tag">Systolic Array</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header">
             <span class="project-title">256-Bit Scan Chain — Full-Custom IC (TSMC 65nm)</span>
           </div>
           <p class="project-desc">
@@ -578,6 +578,25 @@
             <span class="tag">SymbiYosys</span>
             <span class="tag">ASAP7</span>
             <span class="tag">CDC</span>
+          </div>
+        </div>
+
+        <div class="project-card project-card--wip">
+          <div class="project-header">
+            <span class="project-title">QoS AXI Interconnect Fabric</span>
+            <a class="project-link" href="https://github.com/v2umasha" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+          <p class="project-desc">
+            Multi-domain AXI interconnect with quality-of-service arbitration. Submodules include a selective dispatch queue, AXI4-Stream wrapper, QoS arbiter, address decoder/crossbar, CDC crossing, APB peripheral bridge, and clock gating/power domain analysis. Architecture crosses a fast CPU/fabric domain to a slow APB peripheral domain. UPF power domain definitions, SVA assertions, and quantitative timing closure targets via OpenROAD/ASAP7.
+          </p>
+          <div class="tag-row">
+            <span class="tag">SystemVerilog</span>
+            <span class="tag">AXI4-Stream</span>
+            <span class="tag">APB</span>
+            <span class="tag">CDC</span>
+            <span class="tag">UPF</span>
+            <span class="tag">SVA</span>
+            <span class="tag">OpenROAD</span>
           </div>
         </div>
 
