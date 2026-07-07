@@ -473,7 +473,7 @@
             <a class="project-link" href="https://github.com/v2umasha" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
           <p class="project-desc">
-            Accelerating OpenVLA-7B inference (LLaMA-2 backbone), aiming to push throughput from ~5 Hz to 25–50 Hz to enable real time robotic manipulation. Modules include a reduction tree, scale register file, systolic array, fifos, etc. 224 golden truth files captured via PyTorch forward hooks for RTL comparison. Quantization research: per-group W4A4 (gs=64) achieved 88.4% weighted task accuracy vs. 83.1% BF16 baseline.
+            OpenVLA-7B is a vision-language-action model built on a LLaMA-2 backbone, designed to control robots through natural language instructions. Running it at full precision on embedded hardware yields only ~5 Hz which is too slow for real-time manipulation. Project RAIHA targets FPGA based acceleration of the LLaMA backbone to push throughput to 25–50 Hz, making real-time robotic control viable. RTL modules include a reduction tree, scale register file, and systolic array, verified against 224 golden reference files captured via PyTorch forward hooks.
           </p>
           <div class="tag-row">
             <span class="tag">Software-Hardware Co-Design</span>
@@ -482,6 +482,9 @@
             <span class="tag">PyTorch</span>
             <span class="tag">INT4 Quantization</span>
           </div>
+          <p class="project-desc" style="margin-top:1rem;">
+            The videos below show the robot attempting to pick up a ramekin and place it on a plate. The left video uses per-tensor W4A4 quantization. As you can see the model is too degraded to complete the task. After some extensive research, I use a per-group quantization, which recovers model accuracy and allows the robot to complete the task successfully.
+          </p>
           <div class="video-pair">
             <div class="video-pair-item">
               <p class="video-label video-label--fail">Before: Per-tensor W4A4 (0% task success)</p>
