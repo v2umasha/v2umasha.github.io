@@ -425,7 +425,7 @@
       <p class="hero-eyebrow">RTL Design Engineer</p>
       <h1>Building the hardware<br /><em>that runs the models.</em></h1>
       <p class="hero-sub">
-        I work at the RTL level, making informed decisions based on a full-stack understanding of digital systems from microarchitecture to device physics
+        I work at the RTL level, making informed decisions based on a full-stack understanding of digital systems from transistors to microarchitecture
       </p>
       <div class="hero-links">
         <a class="btn btn-primary" href="#projects">View Projects</a>
@@ -469,7 +469,58 @@
 
         <div class="project-card">
           <div class="project-header">
-            <span class="project-title">IBERT — Inference BERT Accelerator</span>
+            <span class="project-title">RAIHA: Robotic AI Hardware Accelerator</span>
+            <a class="project-link" href="https://github.com/v2umasha" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+          <p class="project-desc">
+            Accelerating OpenVLA-7B inference (LLaMA-2 backbone), aiming to push throughput from ~5 Hz to 25–50 Hz to enable real time robotic manipulation. Modules include a reduction tree, scale register file, systolic array, fifos, etc. 224 golden truth files captured via PyTorch forward hooks for RTL comparison. Quantization research: per-group W4A4 (gs=64) achieved 88.4% weighted task accuracy vs. 83.1% BF16 baseline.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Software-Hardware Co-Design</span>
+            <span class="tag">SystemVerilog</span>
+            <span class="tag">AXI Stream</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">INT4 Quantization</span>
+          </div>
+          <div class="video-pair">
+            <div class="video-pair-item">
+              <p class="video-label video-label--fail">Before: Per-tensor W4A4 (0% task success)</p>
+              <video controls preload="none">
+                <source src="assets/videos/raiha_attempt1.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="video-pair-item">
+              <p class="video-label video-label--success">After: Per-group gs=64 (88.4% task success)</p>
+              <video controls preload="none">
+                <source src="assets/videos/raiha_success.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-title">5-Stage Pipelined RISC-V SoC</span>
+          </div>
+          <p class="project-desc">
+            Pipelined RISC-V CPU synthesized and deployed on a PYNQ-Z1 FPGA, extended beyond course content to a SoC with memory-mapped PWM and SPI peripherals. Two-FF synchronizer handling SCLK domain to the system clock domain. Fixed priority arbitration through SPI master and CPU writes to shared PWM config registers.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Verilog</span>
+            <span class="tag">RISC-V</span>
+            <span class="tag">FPGA</span>
+            <span class="tag">Verification</span>
+            <span class="tag">SPI Protocol</span>
+            <span class="tag">CDC</span>
+          </div>
+          <div class="project-media">
+            <img src="assets/images/riscv.png" alt="RISC-V pipeline architecture diagram" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-title">IBERT — Integer BERT Accelerator</span>
             <a class="project-link" href="https://github.com/v2umasha" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
           <p class="project-desc">
@@ -487,62 +538,10 @@
 
         <div class="project-card">
           <div class="project-header">
-            <span class="project-title">RAIHA — Robotic AI Hardware Accelerator</span>
-            <a class="project-link" href="https://github.com/v2umasha" target="_blank" rel="noopener">GitHub ↗</a>
+            <span class="project-title">256-Bit Scan Chain: Full-Custom IC (TSMC 65nm)</span>
           </div>
           <p class="project-desc">
-            RTL implementation of an activation preprocessing pipeline and AXI host interface targeting OpenVLA-7B inference acceleration (LLaMA-2 backbone), aiming to push throughput from ~5 Hz to 25–50 Hz for robotic manipulation. Modules include a reduction tree, scale register file, BF16→FP32 multiplier via DSP48E2, and a downstream divider pipeline. 224 golden truth files captured via PyTorch forward hooks for RTL comparison. Quantization research: per-group W4A4 (gs=64) achieved 88.4% weighted task accuracy vs. 83.1% BF16 baseline.
-          </p>
-          <div class="tag-row">
-            <span class="tag">SystemVerilog</span>
-            <span class="tag">AXI</span>
-            <span class="tag">BF16</span>
-            <span class="tag">DSP48E2</span>
-            <span class="tag">PyTorch</span>
-            <span class="tag">INT4 Quantization</span>
-          </div>
-          <div class="video-pair">
-            <div class="video-pair-item">
-              <p class="video-label video-label--fail">Before — Per-tensor W4A4 (0% task success)</p>
-              <video controls preload="none">
-                <source src="assets/videos/raiha_attempt1.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <div class="video-pair-item">
-              <p class="video-label video-label--success">After — Per-group gs=64 (88.4% task success)</p>
-              <video controls preload="none">
-                <source src="assets/videos/raiha_success.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header">
-            <span class="project-title">5-Stage Pipelined RISC-V SoC</span>
-          </div>
-          <p class="project-desc">
-            Pipelined RISC-V CPU synthesized and deployed on a PYNQ-Z1 FPGA, extended to a full SoC with memory-mapped PWM and SPI peripherals. Two-FF synchronizer on the byte-ready signal crossing the SCLK domain to the system clock domain. SPI master writes to shared PWM config registers with a CPU-wins priority mux.
-          </p>
-          <div class="tag-row">
-            <span class="tag">SystemVerilog</span>
-            <span class="tag">RISC-V</span>
-            <span class="tag">FPGA</span>
-            <span class="tag">SPI</span>
-            <span class="tag">PWM</span>
-            <span class="tag">CDC</span>
-          </div>
-          <div class="project-media">
-            <img src="assets/images/riscv.png" alt="RISC-V pipeline architecture diagram" loading="lazy" />
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header">
-            <span class="project-title">256-Bit Scan Chain — Full-Custom IC (TSMC 65nm)</span>
-          </div>
-          <p class="project-desc">
-            Designed and laid out a 256-bit scan chain using Transmission Gate Flip-Flops (TGFF) in Cadence Virtuoso on TSMC 65nm. 20 transistors per cell vs. 32 for a standard NAND-based FF — a 37% reduction enabled by the contention-free topology. H-tree clock distribution, Monte Carlo analysis, pre/post-layout simulation, with power-delay product as the figure of merit.
+            Designed and laid out a 256-bit scan chain using Transmission Gate Flip-Flops (TGFF) in Cadence Virtuoso on TSMC 65nm. Utilised a contention-free topology. H-tree clock distribution, Monte Carlo analysis, pre/post-layout simulation, with power-delay product as the figure of merit.
           </p>
           <div class="tag-row">
             <span class="tag">Cadence Virtuoso</span>
@@ -564,11 +563,11 @@
 
         <div class="project-card project-card--wip">
           <div class="project-header">
-            <span class="project-title">MXA — OCP MX GEMM Accelerator</span>
+            <span class="project-title">MXFP4 GEMM Accelerator</span>
             <a class="project-link" href="https://github.com/v2umasha" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
           <p class="project-desc">
-            Full design of an OCP Microscaling (MXFP4) GEMM accelerator subsystem targeting 1 GHz post-route on ASAP7 and 512 GOPS peak throughput. Architecture spans a pipelined FP4 dot-product datapath, 16×16 PE array with cocotb DV, banked SRAM memory subsystem, burst-capable AXI4 Full DMA master, and full-system integration with CDC. Formally verified via SymbiYosys; GitHub Actions CI gating each phase.
+            Designing a MXFP4 GEMM accelerator subsystem targeting 1 GHz post-route on ASAP7 and 512 GOPS peak throughput. Architecture spans a pipelined FP4 dot-product datapath, 16×16 PE array with cocotb DV, banked SRAM memory subsystem, burst-capable AXI4 Full DMA master, and full-system integration with CDC. Formally verified via SymbiYosys.
           </p>
           <div class="tag-row">
             <span class="tag">SystemVerilog</span>
@@ -578,25 +577,6 @@
             <span class="tag">SymbiYosys</span>
             <span class="tag">ASAP7</span>
             <span class="tag">CDC</span>
-          </div>
-        </div>
-
-        <div class="project-card project-card--wip">
-          <div class="project-header">
-            <span class="project-title">QoS AXI Interconnect Fabric</span>
-            <a class="project-link" href="https://github.com/v2umasha" target="_blank" rel="noopener">GitHub ↗</a>
-          </div>
-          <p class="project-desc">
-            Multi-domain AXI interconnect with quality-of-service arbitration. Submodules include a selective dispatch queue, AXI4-Stream wrapper, QoS arbiter, address decoder/crossbar, CDC crossing, APB peripheral bridge, and clock gating/power domain analysis. Architecture crosses a fast CPU/fabric domain to a slow APB peripheral domain. UPF power domain definitions, SVA assertions, and quantitative timing closure targets via OpenROAD/ASAP7.
-          </p>
-          <div class="tag-row">
-            <span class="tag">SystemVerilog</span>
-            <span class="tag">AXI4-Stream</span>
-            <span class="tag">APB</span>
-            <span class="tag">CDC</span>
-            <span class="tag">UPF</span>
-            <span class="tag">SVA</span>
-            <span class="tag">OpenROAD</span>
           </div>
         </div>
 
@@ -615,8 +595,8 @@
           <ul class="skill-list">
             <li>SystemVerilog / Verilog</li>
             <li>SVA (SystemVerilog Assertions)</li>
-            <li>cocotb / Verilator</li>
-            <li>SymbiYosys (Formal)</li>
+            <li>cocotb</li>
+            <li>iverilog</li>
             <li>Constrained Random DV</li>
           </ul>
         </div>
@@ -628,7 +608,6 @@
             <li>Cadence Innovus (P&amp;R)</li>
             <li>PrimeTime (STA)</li>
             <li>OpenROAD / ASAP7</li>
-            <li>UPF / Power Analysis</li>
           </ul>
         </div>
 
@@ -636,10 +615,18 @@
           <p class="skill-group-title">FPGA & Interfaces</p>
           <ul class="skill-list">
             <li>Xilinx / PYNQ</li>
-            <li>AXI4 / AXI4-Stream / APB</li>
-            <li>SPI / JTAG</li>
+            <li>AXI4 / AXI4-Stream</li>
+            <li>SPI</li>
             <li>Clock Domain Crossing</li>
-            <li>DSP48E2</li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="skill-group-title">Full-Custom IC</p>
+          <ul class="skill-list">
+            <li>Cadence Virtuoso</li>
+            <li>TSMC 65nm</li>
+            <li>SPICE Simulation</li>
           </ul>
         </div>
 
@@ -647,10 +634,8 @@
           <p class="skill-group-title">Software & Tools</p>
           <ul class="skill-list">
             <li>Python / PyTorch</li>
-            <li>Cadence Virtuoso</li>
+            <li>C++</li>
             <li>Git / GitHub Actions</li>
-            <li>C / C++</li>
-            <li>Linux / Bash</li>
           </ul>
         </div>
 
@@ -667,16 +652,16 @@
         <div class="exp-item">
           <div class="exp-meta">
             <span class="exp-role">Teaching Assistant — Digital Hardware Design</span>
-            <span class="exp-date">2024 – 2025</span>
+            <span class="exp-date">Jan – Aug 2025</span>
           </div>
           <p class="exp-org">University of Waterloo</p>
-          <p class="exp-desc">Guided students through RTL-to-GDS flows including synthesis, place-and-route, and static timing analysis. Mentored teams debugging FPGA implementations and ASIC timing closure, including post-route slack improvements from 0.89 ns to 0.739 ns.</p>
+          <p class="exp-desc">Guided students through RTL-to-GDS flows including synthesis, place-and-route, and static timing analysis. Mentored teams debugging FPGA implementations and ASIC timing closure.</p>
         </div>
 
         <div class="exp-item">
           <div class="exp-meta">
             <span class="exp-role">ML Engineer Lead (Co-op)</span>
-            <span class="exp-date">2023</span>
+            <span class="exp-date">May – Dec 2024</span>
           </div>
           <p class="exp-org">Healthcare Systems</p>
           <p class="exp-desc">Built a pose estimation pipeline for chronic lower back pain assessment using MobileNetV2 with cyclic checkpointing and a MediaPipe-style cascade, optimizing for inference latency on embedded hardware.</p>
@@ -685,10 +670,19 @@
         <div class="exp-item">
           <div class="exp-meta">
             <span class="exp-role">Research Assistant (Co-op)</span>
-            <span class="exp-date">2022</span>
+            <span class="exp-date">Apr – Aug 2023</span>
           </div>
           <p class="exp-org">MIS Electronics</p>
           <p class="exp-desc">Developed SpectraView, a Python/Tkinter Raman spectroscopy application with a chemical signature database and calibration curve engine. Work contributed to a peer-reviewed publication.</p>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-meta">
+            <span class="exp-role">Formulation and Test Development Engineer (Co-op)</span>
+            <span class="exp-date">Sept – Dec 2021</span>
+          </div>
+          <p class="exp-org">Alchemy</p>
+          <p class="exp-desc">Analyzed test data to deduce improvements to adhesive formulations, addressing degradation mechanisms to enhance the durability of a flagship nanocoating. Retrofitted lab equipment with Arduino, sensors, and custom hardware to enable affordable in-house testing. Used SolidWorks and 3D printing to fabricate test components, gaining exposure to design iteration and variance reduction in experimental workflows.</p>
         </div>
 
       </div>
