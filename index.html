@@ -473,7 +473,7 @@
             <a class="project-link" href="https://github.com/v2umasha" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
           <p class="project-desc">
-            OpenVLA-7B is a vision-language-action model built on a LLaMA-2 backbone, designed to control robots through natural language instructions. Running it at full precision on embedded hardware yields only ~5 Hz which is too slow for real-time manipulation. Project RAIHA targets FPGA based acceleration of the LLaMA backbone to push throughput to 25–50 Hz, making real-time robotic control viable. RTL modules include a reduction tree, scale register file, and systolic array, verified against 224 golden reference files captured via PyTorch forward hooks.
+            OpenVLA-7B is a vision-language-action model built on a LLaMA-2 backbone, designed to control robots through natural language instructions. Running it at full precision on embedded hardware yields only ~5 Hz — too slow for real-time manipulation. RAIHA targets hardware acceleration of the LLaMA backbone to push throughput to 25–50 Hz, making real-time robotic control viable. RTL modules include a reduction tree, scale register file, and systolic array, verified against 224 golden reference files captured via PyTorch forward hooks.
           </p>
           <div class="tag-row">
             <span class="tag">Software-Hardware Co-Design</span>
@@ -483,7 +483,7 @@
             <span class="tag">INT4 Quantization</span>
           </div>
           <p class="project-desc" style="margin-top:1rem;">
-            The videos below show the robot attempting to pick up a ramekin and place it on a plate. The left video uses per-tensor W4A4 quantization. As you can see the model is too degraded to complete the task. After some extensive research, I use a per-group quantization, which recovers model accuracy and allows the robot to complete the task successfully.
+            The videos below show the robot attempting to pick up a ramekin and place it on a plate. The left video uses per-tensor W4A4 quantization — the model is too degraded to complete the task. The right video uses per-group quantization (gs=64), which recovers model accuracy and allows the robot to complete the task successfully.
           </p>
           <div class="video-pair">
             <div class="video-pair-item">
@@ -523,7 +523,7 @@
             <a class="project-link" href="https://github.com/v2umasha" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
           <p class="project-desc">
-            FPGA-based hardware accelerator for BERT inference. Designed a systolic array with FSM-based address generation controllers for multi-bank SRAMs, and a two-FSM attention head with input mux and output demux. Implemented fixed-point exp(x) and softmax pipelines using argument-reduction and Horner approximation. RTL-to-GDS on ASAP7 targeting 1 GHz; critical path analysis via OpenROAD with post-route timing closure achieving 0.739 ns slack.
+            IBERT is an integer-only BERT inference accelerator implemented on a PYNQ-Z1 FPGA at 100 MHz. The core challenge is replacing all floating-point operations with integer arithmetic since every nonlinear function needs a hardware-friendly integer approximation. Implemented modules include: a fixed-point GELU using polynomial approximation of the error function, an integer Softmax using a max-subtraction stability trick, a fixed-point exp pipeline, and reciprocal division to replace N divides with one shift-multiply, and a LayerNorm using iterative integer square root. The attention head reuses a single systolic array across Q, K, and V projections via a two-FSM architecture: a transfer FSM for input muxing and an output FSM for result demuxing. AXI-Stream interfaces handle handshake-driven flow control between modules. Currently running modules through an RTL-to-GDS flow on ASAP7 via OpenROAD to build intuition for closing timing at the RTL level. Targeting 1 GHz; currently achieving 852 MHz. Critical path and congestion analysis inform RTL-level fixes including operand width reduction and pipeline stage splitting.
           </p>
           <div class="tag-row">
             <span class="tag">SystemVerilog</span>
@@ -533,6 +533,19 @@
             <span class="tag">Fixed-Point</span>
             <span class="tag">Systolic Array</span>
           </div>
+          <div class="video-pair" style="margin-top:1rem;">
+            <div class="video-pair-item">
+              <p class="video-label" style="color:var(--muted);">Critical Path — GELU Module (ASAP7)</p>
+              <img src="assets/images/ibert_worst_path.webp" alt="IBERT GELU critical path visualization" loading="lazy" style="width:100%;border-radius:4px;border:1px solid var(--border);" />
+            </div>
+            <div class="video-pair-item">
+              <p class="video-label" style="color:var(--muted);">Routing Congestion Heatmap</p>
+              <img src="assets/images/ibert_congestion.webp" alt="IBERT routing congestion heatmap" loading="lazy" style="width:100%;border-radius:4px;border:1px solid var(--border);" />
+            </div>
+          </div>
+          <p class="project-desc" style="margin-top:0.75rem;">
+            Post-route analysis on ASAP7 at 1 GHz target. The critical path (left) traces from input port q1 across the die to the multiplier tree in the bottom-right corner — a long wire contributes RC delay beyond gate logic alone. The congestion heatmap (right) shows high routing density (orange/red) along vertical and horizontal channels, with moderate utilization across the core. fmax achieved: 852 MHz (WNS −173 ps).
+          </p>
         </div>
 
         <div class="project-card">
