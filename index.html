@@ -575,11 +575,11 @@
 
         <div class="project-card project-card--wip">
           <div class="project-header">
-            <span class="project-title">MXFP4 GEMM Accelerator</span>
+            <span class="project-title">PIPE-PHY - PCIe PHY Controller (SystemVerilog)</span>
             <a class="project-link" href="https://github.com/v2umasha" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
           <p class="project-desc">
-            Designing a MXFP4 GEMM accelerator subsystem targeting 1 GHz post-route on ASAP7 and 512 GOPS peak throughput. Architecture spans a pipelined FP4 dot-product datapath, 16×16 PE array with cocotb DV, banked SRAM memory subsystem, burst-capable AXI4 Full DMA master, and full-system integration with CDC. Formally verified via SymbiYosys.
+            Digital PHY controller implementing the PIPE interface for PCIe: link training state machine (LTSSM), 8b/10b encoding with running disparity, and a clock-compensation elastic buffer handling ±300 ppm drift via SKP insertion/deletion. Verified with a UVM environment; targeting ASAP7 via OpenROAD.
           </p>
           <div class="tag-row">
             <span class="tag">SystemVerilog</span>
