@@ -6,19 +6,19 @@
   <title>Vithurshan Umashanker</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Work+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
   <style>
     /* ── Tokens ─────────────────────────────────────────────── */
     :root {
       --bg:        #F7F6F3;
       --surface:   #FFFFFF;
       --border:    #E2E0DA;
-      --text:      #16150F;
-      --muted:     #4A4841;   /* darkened for contrast */
+      --text:      #1A1916;
+      --muted:     #6B6860;
       --accent:    #1C4ED8;   /* deep circuit-board blue */
       --accent-lt: #EEF2FF;
       --mono:      'IBM Plex Mono', monospace;
-      --sans:      'Work Sans', 'Segoe UI', sans-serif;
+      --sans:      'IBM Plex Sans', sans-serif;
       --max:       800px;
       --gap:       2rem;
     }
@@ -99,7 +99,7 @@
     }
     h1 {
       font-family: var(--sans);
-      font-weight: 500;
+      font-weight: 300;
       font-size: clamp(2rem, 5vw, 2.75rem);
       line-height: 1.2;
       letter-spacing: -0.02em;
@@ -108,13 +108,13 @@
     }
     h1 em {
       font-style: italic;
-      font-weight: 400;
+      font-weight: 300;
       color: var(--muted);
     }
     .hero-sub {
       font-size: 1.05rem;
       color: var(--muted);
-      font-weight: 400;
+      font-weight: 300;
       max-width: 560px;
       margin-bottom: 2rem;
     }
@@ -177,7 +177,7 @@
     .about-body {
       font-size: 1rem;
       color: var(--text);
-      font-weight: 400;
+      font-weight: 300;
       max-width: 640px;
     }
     .about-body p + p { margin-top: 1rem; }
@@ -210,14 +210,6 @@
       font-weight: 500;
       color: var(--text);
     }
-    .project-date {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      font-weight: 400;
-      color: var(--muted);
-      white-space: nowrap;
-      margin-left: 0.6rem;
-    }
     .project-link {
       font-family: var(--mono);
       font-size: 0.75rem;
@@ -226,8 +218,8 @@
       flex-shrink: 0;
     }
     .project-desc {
-      font-size: 0.95rem;
-      font-weight: 400;
+      font-size: 0.93rem;
+      font-weight: 300;
       color: var(--muted);
       margin-bottom: 1rem;
       line-height: 1.6;
@@ -245,82 +237,6 @@
       background: var(--accent-lt);
       color: var(--accent);
       letter-spacing: 0.02em;
-    }
-
-    /* --- metric chips --- */
-    .metric-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.1rem;
-    }
-    .metric {
-      font-family: var(--mono);
-      font-size: 0.74rem;
-      padding: 0.3rem 0.6rem;
-      border-radius: 3px;
-      border: 1px solid var(--border);
-      background: #fff;
-      color: var(--text);
-      letter-spacing: 0.01em;
-    }
-    .metric strong {
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    /* --- figures --- */
-    .project-figure {
-      margin: 0 0 1.1rem 0;
-    }
-    .project-figure img {
-      width: 100%;
-      display: block;
-      border-radius: 4px;
-      border: 1px solid var(--border);
-      background: #fff;
-    }
-    .project-figure figcaption {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      color: var(--muted);
-      margin-top: 0.45rem;
-      line-height: 1.5;
-    }
-    .figure-pair {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-bottom: 1.1rem;
-    }
-    @media (max-width: 700px) {
-      .figure-pair { grid-template-columns: 1fr; }
-    }
-
-    /* --- collapsible details --- */
-    .project-details {
-      border-top: 1px solid var(--border);
-      padding-top: 0.85rem;
-      margin-top: 0.2rem;
-    }
-    .project-details summary {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--accent);
-      cursor: pointer;
-      list-style: none;
-      user-select: none;
-    }
-    .project-details summary::-webkit-details-marker { display: none; }
-    .project-details summary::before {
-      content: "+ ";
-      font-weight: 600;
-    }
-    .project-details[open] summary::before { content: "\2212 "; }
-    .project-details summary:hover { text-decoration: underline; }
-    .project-details .project-desc {
-      margin-top: 0.8rem;
-      margin-bottom: 0.6rem;
     }
 
     .section-sublabel {
@@ -410,7 +326,7 @@
     }
     .skill-list li {
       font-size: 0.88rem;
-      font-weight: 400;
+      font-weight: 300;
       color: var(--muted);
     }
 
@@ -445,14 +361,14 @@
     }
     .exp-desc {
       font-size: 0.9rem;
-      font-weight: 400;
+      font-weight: 300;
       color: var(--muted);
     }
 
     /* ── Contact ────────────────────────────────────────────── */
     #contact .container > p {
       font-size: 1rem;
-      font-weight: 400;
+      font-weight: 300;
       color: var(--muted);
       max-width: 520px;
       margin-bottom: 1.75rem;
@@ -507,9 +423,9 @@
   <section id="hero">
     <div class="container">
       <p class="hero-eyebrow">RTL Design Engineer</p>
-      <h1>Designing hardware<br /><em>from the transistor up.</em></h1>
+      <h1>Building the hardware<br /><em>that runs the models.</em></h1>
       <p class="hero-sub">
-        I design RTL with a transistor-level understanding of what the silicon underneath is actually doing, and use it to build circuits that run faster and burn less power.
+        I work at the RTL level, making informed decisions based on a full-stack understanding of digital systems from transistors to microarchitecture
       </p>
       <div class="hero-links">
         <a class="btn btn-primary" href="#projects">View Projects</a>
@@ -526,10 +442,19 @@
       <p class="section-label">About</p>
       <div class="about-body">
         <p>
-          I design and verify RTL, working from a full-stack understanding of digital systems that runs from transistor physics up through microarchitecture. That range lets me reason about how a decision at the RTL level ripples into timing, power, area, and physical implementation, and ultimately the performance of the final chip.
+          If I were to describe myself in one word, it would be <strong>inquisitive</strong>. That curiosity has led me to work across multiple levels of abstraction, from transistor-level circuit design to FPGA-based RTL development and ASIC implementation. It has also given me an appreciation for how decisions made at one level of the stack influence timing, power, area, physical implementation, and ultimately the performance of the final chip.
         </p>
         <p>
-          My BEng in Nanotechnology Engineering and MEng from the University of Waterloo built that foundation in transistor physics, digital circuit design, computer architecture, and VLSI, before I specialized in RTL development and digital IC implementation. I'm especially drawn to the hardware that powers modern AI systems: building datapaths and accelerators that make models run faster and more efficiently.
+          My BEng in Nanotechnology Engineering and MEng from the University of Waterloo gave me a foundation in transistor physics, analog and digital circuit design, computer architecture, and VLSI design before I specialized in RTL development and digital IC implementation. 
+        </p>
+        <p>
+          I enjoy understanding systems from the ground up and seeing how each layer influences the next. I'm particularly interested in the hardware that powers modern AI systems. I'm comfortable in designing hardware that makes algorithms run faster and more efficiently.
+        </p>
+        <p>
+          Along the way, I've had the opportunity to work in a variety of roles. As a teaching assistant, I guided undergraduate students through the RTL-to-GDS flow, helping them connect digital design, verification, synthesis, and physical implementation. I've also worked as a Machine Learning Engineer, applying AI to improve clinicians' daily workflows, and as a Test and Development Engineer, developing protective coatings for automotive glass. Although these roles were quite different, each reinforced the same skill: target complex problems by exploring them from different perspectives.
+        </p>
+        <p>
+          For me, the most rewarding part of engineering is seeing how an idea evolves into a complete system. Being able to contribute at different points along that journey is what keeps me curious.
         </p>
       </div>
     </div>
@@ -544,130 +469,42 @@
 
         <div class="project-card">
           <div class="project-header">
-            <span class="project-title">RAIHA: Robotic AI Hardware Accelerator<span class="project-date">Oct 2025 &ndash; Apr 2026</span></span>
-            <a class="project-link" href="https://github.com/v2umasha" target="_blank" rel="noopener">GitHub &#8599;</a>
+            <span class="project-title">RAIHA: Robotic AI Hardware Accelerator</span>
+            <a class="project-link" href="https://github.com/v2umasha" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
           <p class="project-desc">
-            A vision-language-action (VLA) model lets a robot take a plain-English instruction and turn it into motion. OpenVLA-7B does this well but runs at only ~5 Hz on embedded hardware, which is too slow to actually control a robot. RAIHA accelerates its LLaMA-2 backbone in custom INT4 hardware.
+            OpenVLA-7B is a vision-language-action model built on a LLaMA-2 backbone, designed to control robots through natural language instructions. Running it at full precision on embedded hardware yields only ~5 Hz — too slow for real-time manipulation. RAIHA targets hardware acceleration of the LLaMA backbone to push throughput to 25–50 Hz, making real-time robotic control viable. RTL modules include a reduction tree, scale register file, and systolic array, verified against 224 golden reference files captured via PyTorch forward hooks.
           </p>
-          <div class="metric-row">
-            <span class="metric"><strong>88.4%</strong> task success</span>
-            <span class="metric"><strong>65%</strong> memory reduction</span>
-            <span class="metric">14.5 GB &rarr; <strong>5.1 GB</strong></span>
-            <span class="metric">W4A4 INT4</span>
-          </div>
-
-          <figure class="project-figure">
-            <img src="assets/images/openvla_architecture.webp" alt="OpenVLA architecture: vision, language, and action tokens feeding a multimodal transformer policy" loading="lazy" />
-            <figcaption>What a VLA is: camera frames and a text instruction are tokenized and fed to one transformer policy, which emits action tokens that drive the arm. The LLaMA-2 backbone dominates runtime, and that is the part RAIHA accelerates.</figcaption>
-          </figure>
-
-          <figure class="project-figure">
-            <img src="assets/images/raiha_journey.webp" alt="Quantization pipeline from BF16 baseline through W4A16, W4A4, LIBERO validation, to hardware implementation" loading="lazy" />
-            <figcaption>The path from a 14.5 GB BF16 model to INT4 hardware inference. Per-tensor W4A4 collapses the model to 0% task success; per-group quantization (gs=64) restores it to 88.4%.</figcaption>
-          </figure>
-
-          <p class="project-desc" style="margin-top:1rem;">
-            Below: the robot picking up a ramekin and placing it on a plate. Per-tensor quantization on the left, per-group on the right.
-          </p>
-          <div class="video-pair">
-            <div class="video-pair-item">
-              <p class="video-label video-label--fail">Before: Per-tensor W4A4 (0% task success)</p>
-              <iframe src="https://www.youtube.com/shorts/5ezUBIWXHeE" frameborder="0" allowfullscreen style="width:100%;aspect-ratio:9/16;border-radius:4px;border:1px solid var(--border);"></iframe>
-            </div>
-            <div class="video-pair-item">
-              <p class="video-label video-label--success">After: Per-group gs=64 (88.4% task success)</p>
-              <iframe src="https://www.youtube.com/shorts/u2jb05aTECE" frameborder="0" allowfullscreen style="width:100%;aspect-ratio:9/16;border-radius:4px;border:1px solid var(--border);"></iframe>
-            </div>
-          </div>
-
-          <div class="tag-row" style="margin-bottom:1rem;">
-            <span class="tag">SystemVerilog</span>
+          <div class="tag-row">
             <span class="tag">Software-Hardware Co-Design</span>
+            <span class="tag">SystemVerilog</span>
             <span class="tag">AXI Stream</span>
             <span class="tag">PyTorch</span>
             <span class="tag">INT4 Quantization</span>
           </div>
-
-          <details class="project-details">
-            <summary>RTL &amp; verification detail</summary>
-            <p class="project-desc">
-              The datapath is built around three RTL blocks: a 6-stage pipelined binary max-reduction tree computing per-group max-abs across the activation vector, a scale register file, and a parameterizable systolic array doing INT4&times;INT4 MAC with INT32 accumulation. Per-group accumulation (gs=64) is what preserves accuracy: a single scale factor across the whole tensor loses the dynamic range that outlier channels need.
-            </p>
-            <p class="project-desc">
-              Verification is two-tier: Python golden-reference models (fp16 / W4A16 / W4A4, layer by layer) generate 224 per-layer reference captures via PyTorch forward hooks, which are then checked against SystemVerilog self-checking testbenches for each block in Verilator.
-            </p>
-          </details>
+          <p class="project-desc" style="margin-top:1rem;">
+            The videos below show the robot attempting to pick up a ramekin and place it on a plate. The left video uses per-tensor W4A4 quantization — the model is too degraded to complete the task. The right video uses per-group quantization (gs=64), which recovers model accuracy and allows the robot to complete the task successfully.
+          </p>
+          <div class="video-pair">
+            <div class="video-pair-item">
+              <p class="video-label video-label--fail">Before: Per-tensor W4A4 (0% task success)</p>
+              <iframe src="https://www.youtube.com/embed/5ezUBIWXHeE" frameborder="0" allowfullscreen style="width:100%;aspect-ratio:9/16;border-radius:4px;border:1px solid var(--border);"></iframe>
+            </div>
+            <div class="video-pair-item">
+              <p class="video-label video-label--success">After: Per-group gs=64 (88.4% task success)</p>
+              <iframe src="https://www.youtube.com/embed/u2jb05aTECE" frameborder="0" allowfullscreen style="width:100%;aspect-ratio:9/16;border-radius:4px;border:1px solid var(--border);"></iframe>
+            </div>
+          </div>
         </div>
 
         <div class="project-card">
           <div class="project-header">
-            <span class="project-title">IBERT: Integer BERT Accelerator<span class="project-date">Jan 2025 &ndash; Mar 2025</span></span>
-            <a class="project-link" href="https://github.com/v2umasha" target="_blank" rel="noopener">GitHub &#8599;</a>
+            <span class="project-title">5-Stage Pipelined RISC-V SoC</span>
           </div>
           <p class="project-desc">
-            An integer-only BERT inference accelerator. The hard part is not the matrix multiply. It is that every nonlinear function (Softmax, GELU, LayerNorm) has to be rebuilt in integer arithmetic with no floating point anywhere in the datapath.
+            Pipelined RISC-V CPU synthesized and deployed on a PYNQ-Z1 FPGA, extended beyond course content to a SoC with memory-mapped PWM and SPI peripherals. Two-FF synchronizer handling SCLK domain to the system clock domain. Fixed priority arbitration through SPI master and CPU writes to shared PWM config registers.
           </p>
-          <div class="metric-row">
-            <span class="metric">1 GHz target</span>
-            <span class="metric">PYNQ-Z1 @ 100 MHz</span>
-            <span class="metric">Integer-only</span>
-          </div>
-
-          <figure class="project-figure">
-            <img src="assets/images/ibert_softmax.webp" alt="Integer Softmax dataflow: max, subtract, exp, multiply, shift, accumulate, divide, multiply, shift" loading="lazy" />
-            <figcaption>Integer Softmax as a hardware pipeline. Subtracting the running max keeps the exponent bounded (numerical stability), and the reciprocal at the divide stage replaces N divisions with one shift-multiply.</figcaption>
-          </figure>
-
-          <div class="figure-pair">
-            <figure class="project-figure" style="margin-bottom:0;">
-              <img src="assets/images/ibert_worst_path.webp" alt="IBERT GELU critical path visualization on ASAP7" loading="lazy" />
-              <figcaption>Critical path, GELU (ASAP7). Traces from port q1 across the die to the multiplier tree: wire RC, not gate delay, dominates.</figcaption>
-            </figure>
-            <figure class="project-figure" style="margin-bottom:0;">
-              <img src="assets/images/ibert_congestion.webp" alt="IBERT routing congestion heatmap" loading="lazy" />
-              <figcaption>Routing congestion heatmap. Orange/red shows high routing density along vertical and horizontal channels.</figcaption>
-            </figure>
-          </div>
-
-          <div class="tag-row" style="margin-bottom:1rem;">
-            <span class="tag">SystemVerilog</span>
-            <span class="tag">ASAP7</span>
-            <span class="tag">OpenROAD</span>
-            <span class="tag">FPGA</span>
-            <span class="tag">Fixed-Point</span>
-            <span class="tag">Systolic Array</span>
-          </div>
-
-          <details class="project-details">
-            <summary>Module &amp; timing detail</summary>
-            <p class="project-desc">
-              Implemented modules: a fixed-point GELU using polynomial approximation of the error function, the integer Softmax above, a fixed-point exp pipeline, and a LayerNorm using iterative integer square root. The attention head reuses a single systolic array across Q, K, and V projections via a two-FSM architecture: a transfer FSM for input muxing and an output FSM for result demuxing, with AXI-Stream handshakes carrying flow control between modules.
-            </p>
-            <p class="project-desc">
-              Modules are also run through an RTL-to-GDS flow on ASAP7 via OpenROAD to build intuition for closing timing at the RTL level. Post-route analysis at a 1 GHz target reached 852 MHz; critical-path and congestion reports drove RTL-level fixes including operand-width reduction and pipeline-stage splitting.
-            </p>
-          </details>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header">
-            <span class="project-title">5-Stage Pipelined RISC-V SoC<span class="project-date">Sep 2025 &ndash; Nov 2025</span></span>
-          </div>
-          <p class="project-desc">
-            A pipelined RISC-V CPU on a PYNQ-Z1, extended into a small SoC with memory-mapped PWM and SPI peripherals, which is where I came across an interesting problem! Two independent masters writing the same config registers across two clock domains.
-          </p>
-          <div class="metric-row">
-            <span class="metric"><strong>~1.9%</strong> LUT utilization</span>
-            <span class="metric">4 BRAM tiles</span>
-            <span class="metric">5-stage pipeline</span>
-            <span class="metric">PYNQ-Z1</span>
-          </div>
-          <figure class="project-figure">
-            <img src="assets/images/riscv.png" alt="RISC-V pipeline architecture diagram" loading="lazy" />
-            <figcaption>5-stage pipeline with hazard detection, data bypassing, and stall control resolving RAW dependencies.</figcaption>
-          </figure>
-          <div class="tag-row" style="margin-bottom:1rem;">
+          <div class="tag-row">
             <span class="tag">Verilog</span>
             <span class="tag">RISC-V</span>
             <span class="tag">FPGA</span>
@@ -675,37 +512,58 @@
             <span class="tag">SPI Protocol</span>
             <span class="tag">CDC</span>
           </div>
-          <details class="project-details">
-            <summary>Peripheral &amp; CDC detail</summary>
-            <p class="project-desc">
-              The PWM config registers are shared between the RISC-V core (load/store over the system bus) and an external SPI master running off SCLK. Contention is resolved with a CPU-wins priority mux, and the SPI byte-ready handshake crosses from the SCLK domain into the system clock through a 2-flop synchronizer before it can write the shared registers. Without it, a metastable ready pulse would corrupt the register file.
-            </p>
-          </details>
+          <div class="project-media">
+            <img src="assets/images/riscv.png" alt="RISC-V pipeline architecture diagram" loading="lazy" />
+          </div>
         </div>
 
         <div class="project-card">
           <div class="project-header">
-            <span class="project-title">256-Bit Scan Chain: Full-Custom IC (TSMC 65nm)<span class="project-date">Oct 2024 &ndash; Nov 2024</span></span>
+            <span class="project-title">IBERT — Integer BERT Accelerator</span>
+            <a class="project-link" href="https://github.com/v2umasha" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
           <p class="project-desc">
-            A 256-bit scan chain drawn transistor by transistor in Cadence Virtuoso, using contention-free transmission-gate flip-flops and an H-tree clock network to keep skew balanced across the chain.
+            IBERT is an integer-only BERT inference accelerator implemented on a PYNQ-Z1 FPGA at 100 MHz. The core challenge is replacing all floating-point operations with integer arithmetic since every nonlinear function needs a hardware-friendly integer approximation. Implemented modules include: a fixed-point GELU using polynomial approximation of the error function, an integer Softmax using a max-subtraction stability trick, a fixed-point exp pipeline, and reciprocal division to replace N divides with one shift-multiply, and a LayerNorm using iterative integer square root. The attention head reuses a single systolic array across Q, K, and V projections via a two-FSM architecture: a transfer FSM for input muxing and an output FSM for result demuxing. AXI-Stream interfaces handle handshake-driven flow control between modules. Currently running modules through an RTL-to-GDS flow on ASAP7 via OpenROAD to build intuition for closing timing at the RTL level. Targeting 1 GHz; currently achieving 852 MHz. Critical path and congestion analysis inform RTL-level fixes including operand width reduction and pipeline stage splitting.
           </p>
-          <div class="metric-row">
-            <span class="metric"><strong>256-bit</strong> chain</span>
-            <span class="metric">TSMC 65nm</span>
-            <span class="metric">DRC/LVS clean</span>
-            <span class="metric">H-tree clock</span>
+          <div class="tag-row">
+            <span class="tag">SystemVerilog</span>
+            <span class="tag">ASAP7</span>
+            <span class="tag">OpenROAD</span>
+            <span class="tag">FPGA</span>
+            <span class="tag">Fixed-Point</span>
+            <span class="tag">Systolic Array</span>
           </div>
-          <figure class="project-figure">
-            <img src="assets/images/scanchain.png" alt="256-bit scan chain layout in Cadence Virtuoso" loading="lazy" />
-            <figcaption>Full-custom layout with balanced H-tree clock distribution. Verified through post-layout extraction and Monte Carlo, with power-delay product as the figure of merit.</figcaption>
-          </figure>
+          <div class="video-pair" style="margin-top:1rem;">
+            <div class="video-pair-item">
+              <p class="video-label" style="color:var(--muted);">Critical Path — GELU Module (ASAP7)</p>
+              <img src="assets/images/ibert_worst_path.webp" alt="IBERT GELU critical path visualization" loading="lazy" style="width:100%;border-radius:4px;border:1px solid var(--border);" />
+            </div>
+            <div class="video-pair-item">
+              <p class="video-label" style="color:var(--muted);">Routing Congestion Heatmap</p>
+              <img src="assets/images/ibert_congestion.webp" alt="IBERT routing congestion heatmap" loading="lazy" style="width:100%;border-radius:4px;border:1px solid var(--border);" />
+            </div>
+          </div>
+          <p class="project-desc" style="margin-top:0.75rem;">
+            Post-route analysis on ASAP7 at 1 GHz target. The critical path (left) traces from input port q1 across the die to the multiplier tree in the bottom-right corner: a long wire contributes RC delay beyond gate logic alone. The congestion heatmap (right) shows high routing density (orange/red) along vertical and horizontal channels. fmax achieved: 852 MHz.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-title">256-Bit Scan Chain: Full-Custom IC (TSMC 65nm)</span>
+          </div>
+          <p class="project-desc">
+            Designed and laid out a 256-bit scan chain using Transmission Gate Flip-Flops (TGFF) in Cadence Virtuoso on TSMC 65nm. Utilised a contention-free topology. H-tree clock distribution, Monte Carlo analysis, pre/post-layout simulation, with power-delay product as the figure of merit.
+          </p>
           <div class="tag-row">
             <span class="tag">Cadence Virtuoso</span>
             <span class="tag">TSMC 65nm</span>
             <span class="tag">Full-Custom</span>
             <span class="tag">DFT</span>
             <span class="tag">Monte Carlo</span>
+          </div>
+          <div class="project-media">
+            <img src="assets/images/scanchain.png" alt="256-bit scan chain layout in Cadence Virtuoso" loading="lazy" />
           </div>
         </div>
 
@@ -717,57 +575,18 @@
 
         <div class="project-card project-card--wip">
           <div class="project-header">
-            <span class="project-title">PIPE-PHY: PCIe PHY Controller<span class="project-date">In Progress</span></span>
-            <a class="project-link" href="https://github.com/v2umasha" target="_blank" rel="noopener">GitHub &#8599;</a>
+            <span class="project-title">PIPE-PHY - PCIe PHY Controller (SystemVerilog)</span>
+            <a class="project-link" href="https://github.com/v2umasha" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
           <p class="project-desc">
-            The digital half of a PCIe physical layer. PIPE is the standardized interface between the controller (MAC) and the analog SerDes. This project builds the logical-PHY blocks that sit on the digital side of that boundary, working from the PCIe base and Intel PIPE specs.
+            Digital PHY controller implementing the PIPE interface for PCIe: link training state machine (LTSSM), 8b/10b encoding with running disparity, and a clock-compensation elastic buffer handling ±300 ppm drift via SKP insertion/deletion. Verified with a UVM environment; targeting ASAP7 via OpenROAD.
           </p>
-          <div class="metric-row">
-            <span class="metric">PCIe Gen1 &middot; 2.5 GT/s &middot; x1</span>
-            <span class="metric">&plusmn;300 ppm drift</span>
-            <span class="metric">LTSSM</span>
-            <span class="metric">8b/10b</span>
-          </div>
-          <div class="tag-row" style="margin-bottom:1rem;">
+          <div class="tag-row">
             <span class="tag">SystemVerilog</span>
             <span class="tag">PCIe</span>
-            <span class="tag">SVA</span>
+            <span class="tag">UVM</span>
             <span class="tag">ASAP7</span>
             <span class="tag">CDC</span>
-          </div>
-          <details class="project-details">
-            <summary>Blocks in progress</summary>
-            <p class="project-desc">
-              Link training state machine (LTSSM), 8b/10b encode/decode with running disparity tracking, and a clock-compensation elastic buffer that absorbs &plusmn;300 ppm drift between the two link partners via SKP ordered-set insertion and deletion. Verified with self-checking testbenches using SystemVerilog assertions and constrained-random stimulus; targeting ASAP7 via OpenROAD.
-            </p>
-          </details>
-        </div>
-
-      </div>
-
-      <!-- Physical Design -->
-      <p class="section-sublabel">Physical Design</p>
-      <div class="projects-grid">
-
-        <div class="project-card">
-          <div class="project-header">
-            <span class="project-title">RTL-to-GDS Exploration: OpenROAD / ASAP7<span class="project-date">Ongoing</span></span>
-          </div>
-          <p class="project-desc">
-            Pushing my own RTL through a full open-source flow on ASAP7 (7nm) to improve my know-how on how front-end choices decide whether a design closes. Working the design knobs directly: clock-period targets, operand-width reduction, pipeline-stage splitting, and reading post-route critical-path and congestion reports back into the RTL.
-          </p>
-          <div class="metric-row">
-            <span class="metric">ASAP7 7nm</span>
-            <span class="metric">OpenROAD</span>
-            <span class="metric">IBERT GELU: <strong>852 MHz</strong></span>
-          </div>
-          <div class="tag-row">
-            <span class="tag">OpenROAD</span>
-            <span class="tag">ASAP7</span>
-            <span class="tag">STA</span>
-            <span class="tag">Timing Closure</span>
-            <span class="tag">Congestion Analysis</span>
           </div>
         </div>
 
@@ -848,7 +667,7 @@
             <span class="exp-date">Jan – Aug 2025</span>
           </div>
           <p class="exp-org">University of Waterloo</p>
-          <p class="exp-desc">Mentored 100+ students across core digital hardware courses (parallel FSMs, pipelined processors, cache design), debugging RTL in Vivado to resolve timing violations, logic faults, and synthesis issues. Instructed the full RTL-to-GDS ASIC flow in TSMC 65nm (Design Compiler, Innovus, PrimeTime), covering UPF and SDC to prepare students for industry signoff methodology. Guided post-layout power analysis using cell-level design knobs, helping students build physical-design intuition and connect front-end RTL decisions to back-end PPA outcomes.</p>
+          <p class="exp-desc">Guided students through RTL-to-GDS flows including synthesis, place-and-route, and static timing analysis. Mentored students in debugging FPGA implementations and achieving timing closure.</p>
         </div>
 
         <div class="exp-item">
@@ -886,7 +705,7 @@
   <section id="contact">
     <div class="container">
       <p class="section-label">Contact</p>
-      <p>I'm actively looking for RTL design and verification roles. My work spans AI accelerators, custom silicon, and RTL-to-GDS implementation. If that sounds like a fit, I'd love to connect.</p>
+      <p>I'm actively looking for RTL design roles. My experience includes working with AI accelerators and custom silicon, however I would be excited to tackle new challenges as well! If that sounds like a fit, I'd love to connect.</p>
       <div class="contact-links">
         <a class="btn btn-primary" href="mailto:v2umasha@uwaterloo.ca">Email Me</a>
         <a class="btn btn-ghost" href="https://www.linkedin.com/in/vithurshan-u/" target="_blank" rel="noopener">LinkedIn ↗</a>
